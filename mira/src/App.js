@@ -1,8 +1,15 @@
 import React from 'react';
+import Main from './components/Main/Main';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <h1>Básico</h1>
+    <div>
+      {/* <!-- Main --> */}
+      <Main/>
+      {/* <!-- Footer --> */}
+      <Footer/>
+    </div>
   );
 }
 
