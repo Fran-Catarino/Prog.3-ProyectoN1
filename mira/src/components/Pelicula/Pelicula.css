@@ -1,0 +1,203 @@
+/* Cuadrícula */
+
+article{
+    background-color: rgba(47, 89, 46, 1);
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    width: 40%;
+    min-width: 300px;
+    border-radius: 5px;
+}
+
+/* Seccion imagen */
+
+article div.imagen{
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+article div.imagen button{
+    position: absolute;
+    color: black;
+    background-color: rgb(108, 23, 23);
+    height: 25px;
+    width: 25x;
+    border: solid black 1px;
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+article div.imagen img{
+    height: 300px;
+    border: solid black 1px;
+    border-radius: 5px;
+}
+
+/* Sección información */
+
+article div.informacion{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+article div.informacion h3{
+    text-align: center;
+    color: rgba(19, 38, 21, 1);
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+article div.informacion p.descripcion{
+    text-align: justify;
+    margin-top: 15px;
+    color: black;
+    font-size: 90%;
+    height: fit-content;
+    max-height: 140px;
+    overflow: scroll;
+    padding-right: 5px;
+    width: 80%;
+}
+
+/* Scrollbar */
+
+article div.informacion p::-webkit-scrollbar{
+    width: 7px;
+}
+
+article div.informacion p::-webkit-scrollbar-thumb{
+    display: none;
+    background-color: rgba(185, 191, 164, 0.275);
+    border-radius: 5px;
+}
+
+article div.informacion p:hover::-webkit-scrollbar-thumb{
+    display: block;
+}
+
+article div.informacion p::-webkit-scrollbar-corner{
+    display: none;
+}
+
+/* Contenido "ver más" */
+
+article div.informacion section#oculto{
+    display: none;
+}
+
+article div.informacion section#visible{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 80%;
+    margin: 0px;
+    padding: 10px;
+    background-color: rgba(185, 191, 164, 0.275);
+    border-radius: 10px;
+}
+
+article div.informacion section#visible p{
+    margin: 4px 0px;
+    font-size: 12px;
+}
+
+article div.informacion p#visible{
+    text-decoration: none;
+    color: rgba(185, 191, 164, 1);
+    background-color: rgba(19, 38, 21, 1);
+    padding: 7px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+article div.informacion p#visible:hover{
+    cursor: pointer;
+}
+
+article div.informacion p#oculto{
+    display: none;
+}
+
+/* Modificaciones para visualización en filas */
+
+article.column{
+    width: calc(100% - 60px);
+    margin: 20px 20px 10px 20px;
+    justify-content: flex-start;
+}
+
+/* Tamaño tablet */
+
+@media only screen and (max-width: 1023px) {
+    article div.imagen img{
+        max-height: 235px;
+    }
+
+    article div.informacion p.descripcion{
+        max-height: 80px;
+        font-size: 10px;
+    }
+
+    article div.informacion h3{
+        font-size: 15px;
+        padding-left: 5px;
+    }
+}
+
+/* Tamaño celular */
+
+@media only screen and (max-width: 767px) {
+    article div.imagen img{
+        max-height: 150px;
+    }
+
+    article div.informacion p.descripcion{
+        max-height: 60px;
+        font-size: 10px;
+        width: 80%;
+    }
+
+    article div.informacion h3{
+        font-size: 12px;
+        padding-left: 5px;
+    }
+
+    article div.imagen button{
+        height: 20px;
+        width: 20x;
+        border-radius: 4px;
+    }
+
+    article div.imagen button p{
+        font-size: 8px;
+        text-align: center;
+        line-height: 0px;
+    }
+
+    article div.informacion section#visible p{
+        margin: 3px 0px;
+        font-size: 8px;
+    }
+}

@@ -1,0 +1,41 @@
+/* Sección de películas */
+
+section#peliculasRow{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0px;
+}
+
+section#peliculasColumn{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+/* Sección de más películas */
+
+main button#masPeliculas{
+    width: calc(100% - 60px);
+    margin: 20px 20px 10px 20px;
+    padding: 10px;
+    background-color: rgba(47, 89, 46, 1);
+    border-radius: 20px;
+    border-color: rgba(185, 191, 164, 1);
+    color: rgba(185, 191, 164, 1);
+    font-weight: 800;
+}
+
+main button#masPeliculas:hover{
+    cursor: pointer;
+    color: rgba(47, 89, 46, 1);
+    border-color: rgba(47, 89, 46, 1);
+    background-color: rgba(185, 191, 164, 1);
+}

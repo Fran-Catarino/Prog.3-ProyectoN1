@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './Pelicula.css';
 
 class Pelicula extends Component {
     constructor(props){
@@ -8,23 +9,26 @@ class Pelicula extends Component {
     }
     render(){
         return(
-            <article>
-                <main>
+            <article className=""> {/* <!-- sumar column al className para formato de columna --> */}
+                <div className="imagen">
                     {/* <!-- Boton para eliminar --> */}
-                    <button>Eliminar</button>
+                    <button><p class="fas fa-trash-alt"></p></button>
                     <img src={`https://image.tmdb.org/t/p/w342/${this.props.data.poster_path}`} alt={this.props.data.title}/>
+                </div>
+                <div className="informacion">
                     {/* <!-- Título --> */}
                     <h3>{this.props.data.title}</h3>
                     {/* <!-- Descripción --> */}
-                    <p>{this.props.data.overview}</p>
+                    <p className="descripcion">{this.props.data.overview}</p> {/* <!-- sumar a className column para formato columna --> */}
                     {/* <!-- Datos "ver más" --> */}
-                    <section>
-                        <p>Idioma original: {this.props.data.original_language}</p>
+                    <section id="oculto"> {/* <!-- ID oculto o visible --> */}
+                        <p>Idioma original: {this.props.data.original_language.toUpperCase()}</p>
                         <p>Valoración: {this.props.data.vote_average}</p>
                         <p>Estreno: {this.props.data.release_date}</p>
+                        <p id="visible">ver menos</p>
                     </section>
-                    <a href="">Ver más</a>
-                </main>
+                    <p id="visible">ver más</p> {/* <!-- ID oculto o visible --> */}
+                </div>
             </article>
         )
     }

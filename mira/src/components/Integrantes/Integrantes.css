@@ -1,0 +1,10 @@
+p#integrantes{
+    padding: 10px;
+}
+
+p#integrantes:hover{
+    cursor: pointer;
+    background-color: rgba(19, 38, 21, 1);
+    border-radius: 5px;
+    color: rgba(185, 191, 164, 1);
+}

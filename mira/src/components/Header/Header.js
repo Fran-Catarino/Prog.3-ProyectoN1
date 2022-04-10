@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './Header.css';
 
 class Header extends Component {
     constructor(props){
@@ -10,14 +11,16 @@ class Header extends Component {
     render(){
         return(
             <header>
-                <h1>MIRA</h1>
+                <h2 id="logo">MIRA</h2>
                 <section>
-                    <i className="fas fa-th"></i>
-                    <i className="fas fa-align-justify"></i>
-                    <form onSubmit={(evento)=>this.evitarDefault(evento)}>
-                        <input onChange={(evento)=>this.obtenerDatos(evento)} type="text" name="search" value={this.state.value} placeholder="Search"/>
-                        <button type="submit"><i>Buscar</i></button>
-                    </form>
+                    <i className="fas fa-th estructura"></i>
+                    <i className="fas fa-align-justify estructura"></i>
+                    <div id="buscador">
+                        <form onSubmit={(evento)=>this.evitarDefault(evento)}>
+                            <input onChange={(evento)=>this.obtenerDatos(evento)} type="text" name="search" value={this.state.value} placeholder="Search"/>
+                            <button type="submit"><i class="fas fa-share"/></button>
+                        </form>
+                    </div>
                 </section>
             </header>
         )

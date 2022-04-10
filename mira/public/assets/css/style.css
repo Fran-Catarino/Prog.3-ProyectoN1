@@ -1,0 +1,56 @@
+/* Estilos generales */
+body {
+    background-color: rgba(19, 38, 21, 1);
+}
+
+
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: black;
+}
+
+h3{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: black;
+}
+
+h4{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: black;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: black;
+    font-weight: 400;
+}
+
+main{
+    padding-bottom: 20px;
+}
+
+/* Scrollbar general */
+
+body::-webkit-scrollbar{
+    width: 7px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: rgba(185, 191, 164, 0.275);
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-corner{
+    display: none;
+}

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './Integrantes.css';
 
 class Integrantes extends Component {
     constructor(props){
@@ -8,7 +9,7 @@ class Integrantes extends Component {
     }
     render(){
         return(
-            <li>Nombre integrante</li>
+            <p id="integrantes">{this.props.integrante}</p>
         )
     }
 }
