@@ -123,16 +123,19 @@ article div.informacion section#visible p{
     font-size: 12px;
 }
 
-article div.informacion p#visible{
+article div.informacion p#textButton{
+    margin-top: 15px;
     text-decoration: none;
     color: rgba(185, 191, 164, 1);
     background-color: rgba(19, 38, 21, 1);
     padding: 7px;
     border-radius: 10px;
     font-size: 14px;
+    width: 80px;
+    text-align: center;
 }
 
-article div.informacion p#visible:hover{
+article div.informacion p#textButton:hover{
     cursor: pointer;
 }
 

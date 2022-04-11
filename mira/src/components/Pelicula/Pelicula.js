@@ -5,6 +5,21 @@ class Pelicula extends Component {
     constructor(props){
         super(props)
         this.state = {
+            textButton: "ver más",
+            viewMore: false,
+        }
+    }
+    verMas(){
+        if(this.state.viewMore === false){
+            this.setState({
+                viewMore:true,
+                textButton: 'ver menos'
+            })
+        } else {
+            this.setState({
+                viewMore: false,
+                textButton:'ver más'
+            })
         }
     }
     render(){
@@ -21,13 +36,12 @@ class Pelicula extends Component {
                     {/* <!-- Descripción --> */}
                     <p className="descripcion">{this.props.data.overview}</p> {/* <!-- sumar a className column para formato columna --> */}
                     {/* <!-- Datos "ver más" --> */}
-                    <section id="oculto"> {/* <!-- ID oculto o visible --> */}
+                    <section id={this.state.viewMore === false ? 'oculto' : 'visible'}>
                         <p>Idioma original: {this.props.data.original_language.toUpperCase()}</p>
                         <p>Valoración: {this.props.data.vote_average}</p>
                         <p>Estreno: {this.props.data.release_date}</p>
-                        <p id="visible">ver menos</p>
                     </section>
-                    <p id="visible">ver más</p> {/* <!-- ID oculto o visible --> */}
+                    <p onClick={()=>this.verMas()} id="textButton">{this.state.textButton}</p>
                 </div>
             </article>
         )
