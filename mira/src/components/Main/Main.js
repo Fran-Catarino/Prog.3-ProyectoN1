@@ -10,6 +10,7 @@ class Main extends Component {
         super(props)
         this.state = {
             peliculas: [],
+            vista: 'Row', 
             nextPage:1
             
         }
@@ -26,6 +27,12 @@ class Main extends Component {
             }
         ))
         .catch( error => console.log(error))
+    }
+    cambiarVista(vista){
+        this.setState({
+            vista : vista
+        })
+           
     }
     masPeliculas(){
         const apiKey="11f88aad97603b2da806d195dbb8daed";
@@ -53,6 +60,7 @@ class Main extends Component {
     render(){
         console.log(this.state.peliculas)
         console.log(this.state.peliculas[0])
+        console.log(this.state.vista)
         return(
             <div id="general">
                 { this.state.peliculas.length === 0 ?
@@ -63,17 +71,19 @@ class Main extends Component {
                     </React.Fragment>
                     :
                     <React.Fragment>
-                        <Header/>
+                        <Header  cambiarVista={(vista) => this.cambiarVista(vista)} />
+                       
                         <main>
-                            <section id="peliculasRow"> {/* <!-- ID peliculasRow o peliculasColumn --> */}
-                                {this.state.peliculas.map((pelicula, idx) => <Pelicula key={"id" + idx} data={pelicula} borrarTarjeta={(id) => this.borrarTarjeta(id)}/>)}
+                            <section id={`peliculas${this.state.vista}`}> {/* <!-- ID peliculasRow o peliculasColumn --> */}
+                                {this.state.peliculas.map((pelicula, idx) => <Pelicula key={"id" + idx} data={pelicula} borrarTarjeta={(id) => this.borrarTarjeta(id)} vista={this.state.vista}/>)}
                             </section>
                             <button type="button" id="masPeliculas" onClick={() => this.masPeliculas()}>Más películas</button>
                         </main>
                         <Footer/>
                     </React.Fragment>
-                    
+                   
                 }
+            
             </div>
         )
     }
