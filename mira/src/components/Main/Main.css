@@ -39,3 +39,12 @@ main button#masPeliculas:hover{
     border-color: rgba(47, 89, 46, 1);
     background-color: rgba(185, 191, 164, 1);
 }
+
+/* Loader */
+
+div#loader{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}

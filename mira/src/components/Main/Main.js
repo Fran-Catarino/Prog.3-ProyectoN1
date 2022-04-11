@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Pelicula from "../Pelicula/Pelicula";
 import Header from "../Header/Header";
 import './Main.css';
+import Footer from '../Footer/Footer';
 
 class Main extends Component {
     constructor(props){
@@ -13,7 +14,7 @@ class Main extends Component {
     componentDidMount(){
         {/* <!-- Por página otorga 20 películas --> */}
         const apiKey= "11f88aad97603b2da806d195dbb8daed";
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es-US&page=1`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key${apiKey}&language=es-US&page=1`)
         .then(response => response.json())
         .then(data => this.setState(
             {
@@ -28,16 +29,22 @@ class Main extends Component {
         return(
             <div id="general">
                 { this.state.peliculas.length === 0 ?
-                <h2>CARGANDO...</h2> :
-                <React.Fragment>
-                    <Header/>
-                    <main>
-                        <section id="peliculasRow"> {/* <!-- ID peliculasRow o peliculasColumn --> */}
-                            {this.state.peliculas.map( (pelicula, idx) => <Pelicula key={`id` + idx} data={pelicula}/>)}
-                        </section>
-                        <button type="button" id="masPeliculas">Más películas</button>
-                    </main>
-                </React.Fragment> 
+                    <React.Fragment>
+                        <div id="loader">
+                            <img src="./assets/images/loader.gif" id="loader"></img>
+                        </div>
+                    </React.Fragment>
+                    :
+                    <React.Fragment>
+                        <Header/>
+                        <main>
+                            <section id="peliculasRow"> {/* <!-- ID peliculasRow o peliculasColumn --> */}
+                                {this.state.peliculas.map( (pelicula, idx) => <Pelicula key={`id` + idx} data={pelicula}/>)}
+                            </section>
+                            <button type="button" id="masPeliculas">Más películas</button>
+                        </main>
+                        <Footer/>
+                    </React.Fragment> 
                 }
             </div>
         )
