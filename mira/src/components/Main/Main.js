@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import Footer from '../Footer/Footer';
 import './Main.css';
 
+
 class Main extends Component {
     constructor(props){
         super(props)
@@ -39,6 +40,16 @@ class Main extends Component {
         ))
         .catch(error => console.log(error))
     }
+    
+// BORRAR TARJETA DE PELI y FILTRO
+
+    borrarTarjeta(id){
+        let peliculasFiltradas = this.state.peliculas.filter(Pelicula => Pelicula.id !== id )
+
+        this.setState({
+            peliculas: peliculasFiltradas
+        })
+    }
     render(){
         console.log(this.state.peliculas)
         console.log(this.state.peliculas[0])
@@ -55,16 +66,19 @@ class Main extends Component {
                         <Header/>
                         <main>
                             <section id="peliculasRow"> {/* <!-- ID peliculasRow o peliculasColumn --> */}
-                                {this.state.peliculas.map( (pelicula, idx) => <Pelicula key={`id` + idx} data={pelicula}/>)}
+                                {this.state.peliculas.map((pelicula, idx) => <Pelicula key={"id" + idx} data={pelicula} borrarTarjeta={(id) => this.borrarTarjeta(id)}/>)}
                             </section>
                             <button type="button" id="masPeliculas" onClick={() => this.masPeliculas()}>Más películas</button>
                         </main>
                         <Footer/>
                     </React.Fragment>
+                    
                 }
             </div>
         )
     }
+
+   
 }
 
 export default Main;
