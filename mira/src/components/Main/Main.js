@@ -48,10 +48,18 @@ class Main extends Component {
         .catch(error => console.log(error))
     }
     
-// BORRAR TARJETA DE PELI y FILTRO
+// BORRAR TARJETA DE PELI 
 
     borrarTarjeta(id){
-        let peliculasFiltradas = this.state.peliculas.filter(Pelicula => Pelicula.id !== id )
+        let peliculasFiltradas = this.state.peliculas.filter( Pelicula => Pelicula.id !== id )
+
+        this.setState({
+            peliculas: peliculasFiltradas
+        })
+    }
+
+    filtrarPeliculas(texto){
+        let peliculasFiltradas = this.state.peliculas.filter( Pelicula => Pelicula.title.toLowerCase().includes(texto.toLowerCase()))
 
         this.setState({
             peliculas: peliculasFiltradas
@@ -71,7 +79,7 @@ class Main extends Component {
                     </React.Fragment>
                     :
                     <React.Fragment>
-                        <Header  cambiarVista={(vista) => this.cambiarVista(vista)} />
+                        <Header  cambiarVista={(vista) => this.cambiarVista(vista)} filtrarPeliculas={(texto) => this.filtrarPeliculas(texto)} />
                        
                         <main>
                             <section id={`peliculas${this.state.vista}`}> {/* <!-- ID peliculasRow o peliculasColumn --> */}

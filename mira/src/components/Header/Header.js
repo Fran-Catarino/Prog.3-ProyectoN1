@@ -8,6 +8,20 @@ class Header extends Component {
             value: ''
         }
     }
+
+        //FUNCIONES DE EVITAR DEFAULT Y OBTENER DATOS
+        evitarDefault(evento){
+            evento.preventDefault()
+        }
+    
+        obtenerDatos(evento){
+            this.setState({
+                value: evento.target.value,
+            }, ()=>this.props.filtrarPeliculas(this.state.value))
+            
+        }
+    
+
     render(){
         return(
             <header>
@@ -16,8 +30,8 @@ class Header extends Component {
                     <i className="fas fa-th estructura" onClick={()=>this.props.cambiarVista('Row')}></i>
                     <i className="fas fa-align-justify estructura" onClick={()=>this.props.cambiarVista('Column')}></i>
                     <div id="buscador">
-                        <form onSubmit={(evento)=>this.evitarDefault(evento)}>
-                            <input onChange={(evento)=>this.obtenerDatos(evento)} type="text" name="search" value={this.state.value} placeholder="Search"/>
+                        <form onSubmit={(event)=>this.evitarDefault(event)}>
+                            <input onChange={(event)=>this.obtenerDatos(event)} type="text" name="search" value={this.state.value} placeholder="Search"/>
                             <button type="submit"><i className="fas fa-share"/></button>
                         </form>
                     </div>
