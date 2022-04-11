@@ -12,7 +12,7 @@ class Pelicula extends Component {
             <article className=""> {/* <!-- sumar column al className para formato de columna --> */}
                 <div className="imagen">
                     {/* <!-- Boton para eliminar --> */}
-                    <button><p class="fas fa-trash-alt"></p></button>
+                    <button onClick={()=> this.props.borrarTarjeta(this.props.data.id)}><p class="fas fa-trash-alt"></p></button>
                     <img src={`https://image.tmdb.org/t/p/w342/${this.props.data.poster_path}`} alt={this.props.data.title}/>
                 </div>
                 <div className="informacion">
@@ -32,6 +32,8 @@ class Pelicula extends Component {
             </article>
         )
     }
+
+    
 }
 
 export default Pelicula;
