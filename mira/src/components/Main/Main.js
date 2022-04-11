@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import Pelicula from "../Pelicula/Pelicula";
 import Header from "../Header/Header";
-import './Main.css';
 import Footer from '../Footer/Footer';
+import './Main.css';
 
 class Main extends Component {
     constructor(props){
         super(props)
         this.state = {
-            peliculas: []
+            peliculas: [],
+            nextPage:1
+            
         }
     }
     componentDidMount(){
@@ -18,10 +20,26 @@ class Main extends Component {
         .then(response => response.json())
         .then(data => this.setState(
             {
-                peliculas: data.results
+                peliculas: data.results,
+                
             }
         ))
         .catch( error => console.log(error))
+    }
+  
+    
+    masPeliculas(){
+        const apiKey="11f88aad97603b2da806d195dbb8daed";
+       const nextPage= this.state.nextPage+1
+        
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es-US&page=${nextPage}`)
+        .then(response => response.json())
+        .then(data => this.setState({
+            peliculas: this.state.peliculas.concat(data.results),
+            nextPage: this.state.nextPage+1,
+        }
+        ))
+        .catch(error => console.log(error))
     }
     render(){
         console.log(this.state.peliculas)
@@ -41,10 +59,10 @@ class Main extends Component {
                             <section id="peliculasRow"> {/* <!-- ID peliculasRow o peliculasColumn --> */}
                                 {this.state.peliculas.map( (pelicula, idx) => <Pelicula key={`id` + idx} data={pelicula}/>)}
                             </section>
-                            <button type="button" id="masPeliculas">Más películas</button>
+                            <button type="button" id="masPeliculas" onClick={() => this.masPeliculas()}>Más películas</button>
                         </main>
                         <Footer/>
-                    </React.Fragment> 
+                    </React.Fragment>
                 }
             </div>
         )
