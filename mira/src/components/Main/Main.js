@@ -16,7 +16,7 @@ class Main extends Component {
     componentDidMount(){
         {/* <!-- Por página otorga 20 películas --> */}
         const apiKey= "11f88aad97603b2da806d195dbb8daed";
-        fetch(`https://api.themoviedb.org/3/movie/popular?api_key${apiKey}&language=es-US&page=1`)
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es-US&page=1`)
         .then(response => response.json())
         .then(data => this.setState(
             {
@@ -26,8 +26,6 @@ class Main extends Component {
         ))
         .catch( error => console.log(error))
     }
-  
-    
     masPeliculas(){
         const apiKey="11f88aad97603b2da806d195dbb8daed";
        const nextPage= this.state.nextPage+1
