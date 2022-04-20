@@ -57,7 +57,7 @@ class Main extends Component {
             peliculas: peliculasFiltradas
         })
     }
-
+// FILTRO
     filtrarPeliculas(texto){
         let peliculasFiltradas = this.state.peliculas.filter( Pelicula => Pelicula.title.toLowerCase().includes(texto.toLowerCase()))
 

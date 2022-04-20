@@ -32,7 +32,7 @@ class Header extends Component {
                     <div id="buscador">
                         <form onSubmit={(event)=>this.evitarDefault(event)}>
                             <input onChange={(event)=>this.obtenerDatos(event)} type="text" name="search" value={this.state.value} placeholder="Search"/>
-                            <button type="submit"><i className="fas fa-share"/></button>
+                            <button type="submit"><i className="fas fa-search"/></button>
                         </form>
                     </div>
                 </section>
