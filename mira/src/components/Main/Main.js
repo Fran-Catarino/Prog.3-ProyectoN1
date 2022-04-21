@@ -10,8 +10,9 @@ class Main extends Component {
         super(props)
         this.state = {
             peliculas: [],
+            peliculasBKP: [],
             vista: 'Row', 
-            nextPage:1
+            nextPage: 1
             
         }
     }
@@ -23,6 +24,7 @@ class Main extends Component {
         .then(data => this.setState(
             {
                 peliculas: data.results,
+                peliculasBKP: data.results,
                 
             }
         ))
@@ -59,24 +61,25 @@ class Main extends Component {
     }
 // FILTRO
     filtrarPeliculas(texto){
-        let peliculasFiltradas = this.state.peliculas.filter( Pelicula => Pelicula.title.toLowerCase().includes(texto.toLowerCase()))
-
+        let peliculasFiltradas = this.state.peliculasBKP.filter( Pelicula => Pelicula.title.toLowerCase().includes(texto.toLowerCase()))
         this.setState({
             peliculas: peliculasFiltradas
         })
     }
     render(){
         console.log(this.state.peliculas)
-        console.log(this.state.peliculas[0])
-        console.log(this.state.vista)
         return(
             <div id="general">
-                { this.state.peliculas.length === 0 ?
+                { this.state.peliculasBKP.length === 0 ?
                     <React.Fragment>
                         <div id="loader">
                             <img src="./assets/images/loader.gif" id="loader"></img>
                         </div>
                     </React.Fragment>
+                    : this.state.peliculas.length === 0 ?
+                    <div id="loader">
+                        <iframe src="https://giphy.com/embed/zHDMgMM4O3zc4" width="480" height="401" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                    </div>
                     :
                     <React.Fragment>
                         <Header  cambiarVista={(vista) => this.cambiarVista(vista)} filtrarPeliculas={(texto) => this.filtrarPeliculas(texto)} />
